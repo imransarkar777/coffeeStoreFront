@@ -17,12 +17,9 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://coffee-store-server-rust-five.vercel.app/users/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://coffeeserver-ujut.onrender.com/users/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {

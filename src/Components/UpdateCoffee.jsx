@@ -15,16 +15,13 @@ const UpdateCoffee = () => {
     // console.log(updatedCoffee);
 
     // send coffeeto db
-    fetch(
-      `https://coffee-store-server-rust-five.vercel.app/coffees/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedCoffee),
-      }
-    )
+    fetch(`https://coffeeserver-ujut.onrender.com/coffees/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

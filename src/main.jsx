@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         loader: async () => {
           try {
             const res = await fetch(
-              "https://coffee-store-server-rust-five.vercel.app/coffees"
+              "https://coffeeserver-ujut.onrender.com/coffees"
             );
             return res.json();
           } catch (error) {
@@ -45,9 +45,7 @@ const router = createBrowserRouter([
       {
         path: "updatecoffee/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://coffee-store-server-rust-five.vercel.app/coffees/${params.id}`
-          ),
+          fetch(`https://coffeeserver-ujut.onrender.com/coffees/${params.id}`),
         Component: UpdateCoffee,
       },
       {
@@ -61,8 +59,7 @@ const router = createBrowserRouter([
 
       {
         path: "users",
-        loader: () =>
-          fetch("https://coffee-store-server-rust-five.vercel.app/users"),
+        loader: () => fetch("https://coffeeserver-ujut.onrender.com/users"),
         Component: Users,
       },
     ],

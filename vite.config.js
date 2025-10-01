@@ -1,11 +1,20 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { visualizer } from 'rollup-plugin-visualizer';
+import viteCompression from 'vite-plugin-compression';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    visualizer(),         // Optional: generates stats.html to inspect bundle
+    viteCompression(),    // Optional: creates .gz and .br compressed assets
+  ],
   build: {
-    chunkSizeWarningLimit: 1000, // Increase limit from 500 kB to 1000 kB
+    target: 'esnext',              // Modern JS output
+    assetsInlineLimit: 4096,       // Inline small assets (<4KB)
+    chunkSizeWarningLimit: 1000,   // Avoid warnings for large chunks
     rollupOptions: {
       output: {
         manualChunks(id) {

@@ -31,16 +31,13 @@ const SignUp = () => {
         };
         console.log(email, password, userProfile);
         //save user  infos to db
-        fetch(
-          "https://coffee-store-server-rust-five.vercel.app/users",
-          {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(userProfile),
-          }
-        )
+        fetch("https://coffeeserver-ujut.onrender.com/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {

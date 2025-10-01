@@ -20,17 +20,14 @@ const SignIn = () => {
         lastSignIntime: res.user?.metadata?.lastSignInTime,
       };
       //update last sign in to the database
-      
-      fetch(
-        `https://coffee-store-server-rust-five.vercel.app/users`,
-        {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(signInInfo),
-        }
-      );
+
+      fetch(`https://coffeeserver-ujut.onrender.com/users`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(signInInfo),
+      });
     });
   };
 

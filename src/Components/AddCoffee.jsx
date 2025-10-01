@@ -14,7 +14,7 @@ const AddCoffee = () => {
 
     // send data to the backend
     // create post in back and then fetch() here
-    fetch("https://coffee-store-server-rust-five.vercel.app/coffees", {
+    fetch("https://coffeeserver-ujut.onrender.com/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",

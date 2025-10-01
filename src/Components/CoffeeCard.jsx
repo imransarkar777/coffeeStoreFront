@@ -19,14 +19,10 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //start deleting
-          
 
-        fetch(
-          `https://coffee-store-server-rust-five.vercel.app/coffees/${_id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`https://coffeeserver-ujut.onrender.com/coffees/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => {
             if (!res.ok) {
               throw new Error("Failed to delete");
