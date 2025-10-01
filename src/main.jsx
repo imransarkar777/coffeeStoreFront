@@ -23,7 +23,9 @@ const router = createBrowserRouter([
         index: true,
         loader: async () => {
           try {
-            const res = await fetch("http://localhost:3000/coffees");
+            const res = await fetch(
+              "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//coffees"
+            );
             return res.json();
           } catch (error) {
             console.error("Connection error:", error);
@@ -43,7 +45,9 @@ const router = createBrowserRouter([
       {
         path: "updatecoffee/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/coffees/${params.id}`),
+          fetch(
+            `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//coffees/${params.id}`
+          ),
         Component: UpdateCoffee,
       },
       {
@@ -54,10 +58,13 @@ const router = createBrowserRouter([
         path: "signup",
         Component: SignUp,
       },
-      
+
       {
         path: "users",
-        loader: () => fetch('http://localhost:3000/users') ,
+        loader: () =>
+          fetch(
+            "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app/-rust-five.vercel.app/users"
+          ),
         Component: Users,
       },
     ],

@@ -1,8 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 const AddCoffee = () => {
-
-  // handle 
+  // handle
   //
   const handleAddCoffee = (e) => {
     e.preventDefault();
@@ -15,31 +14,29 @@ const AddCoffee = () => {
 
     // send data to the backend
     // create post in back and then fetch() here
-    fetch("http://localhost:3000/coffees", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newCoffee),
-    })
+    fetch(
+      "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//coffees",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newCoffee),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        if(data.insertedId){
-          
-
-
+        if (data.insertedId) {
           console.log("added on db successfully");
           Swal.fire({
             title: "Coffee added successfull. ",
             icon: "success",
-            draggable:true
+            draggable: true,
           });
           form.reset();
         }
       });
   };
-
-
 
   //return of component
 

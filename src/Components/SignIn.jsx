@@ -20,13 +20,16 @@ const SignIn = () => {
         lastSignIntime: res.user?.metadata?.lastSignInTime,
       };
       //update last sign in to the database
-      fetch(`http://localhost:3000/users`, {
-        method: "PATCH",
-        headers: {
-          'content-type'  : 'application/json'
-        },
-        body: JSON.stringify(signInInfo)
-      });
+      fetch(
+        `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(signInInfo),
+        }
+      );
     });
   };
 

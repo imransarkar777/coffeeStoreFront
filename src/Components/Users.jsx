@@ -17,13 +17,18 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/users/${id}`, { method: "DELETE" })
+        fetch(
+          `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
               const remainingUsers = users.filter((user) => user._id !== id);
               setUsers(remainingUsers);
-                //todo delete userffrom firebase
+              //todo delete userffrom firebase
               Swal.fire({
                 title: "Deleted!",
                 text: "Your file has been deleted.",

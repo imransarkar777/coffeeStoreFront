@@ -27,18 +27,20 @@ const SignUp = () => {
           email,
           ...restFormData,
           creationTime: result.user?.metadata?.creationTime,
-          lastSignInTime: result.user?.metadata?.lastSignInTime
-
+          lastSignInTime: result.user?.metadata?.lastSignInTime,
         };
         console.log(email, password, userProfile);
         //save user  infos to db
-        fetch("http://localhost:3000/users", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userProfile),
-        })
+        fetch(
+          "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users",
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(userProfile),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.insertedId) {

@@ -20,9 +20,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
       if (result.isConfirmed) {
         //start deleting
 
-        fetch(`http://localhost:3000/coffees/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app/coffees/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => {
             if (!res.ok) {
               throw new Error("Failed to delete");

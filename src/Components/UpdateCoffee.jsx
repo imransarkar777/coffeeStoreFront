@@ -4,9 +4,7 @@ import { useLoaderData } from "react-router";
 import { Swal } from "sweetalert2";
 
 const UpdateCoffee = () => {
-  
-  
-    const { _id, supplier, name, price, category, taste, photo, details } =
+  const { _id, supplier, name, price, category, taste, photo, details } =
     useLoaderData();
 
   const handleUpdateCoffee = (e) => {
@@ -17,13 +15,16 @@ const UpdateCoffee = () => {
     // console.log(updatedCoffee);
 
     // send coffeeto db
-    fetch(`http://localhost:3000/coffees/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedCoffee),
-    })
+    fetch(
+      `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//coffees/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedCoffee),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
