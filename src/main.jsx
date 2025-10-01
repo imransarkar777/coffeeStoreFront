@@ -1,7 +1,6 @@
-import { Component, StrictMode } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./LayOuts/MainLayout.jsx";
 import Home from "./Components/Home.jsx";
@@ -10,7 +9,6 @@ import UpdateCoffee from "./Components/UpdateCoffee.jsx";
 import CoffeeDetails from "./Components/CoffeeDetails.jsx";
 import SignIn from "./Components/SignIn.jsx";
 import SignUp from "./Components/SignUp.jsx";
-import { AuthContext } from "./context/AuthContext";
 import AuthProvider from "./context/AuthProvider.jsx";
 import Users from "./Components/Users.jsx";
 
@@ -18,6 +16,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <div>Something went wrong. Please try again later.</div>,
+
     children: [
       {
         index: true,
@@ -62,9 +62,7 @@ const router = createBrowserRouter([
       {
         path: "users",
         loader: () =>
-          fetch(
-            "https://coffee-store-server-rust-five.vercel.app/users"
-          ),
+          fetch("https://coffee-store-server-rust-five.vercel.app/users"),
         Component: Users,
       },
     ],
