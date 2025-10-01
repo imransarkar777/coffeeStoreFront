@@ -32,7 +32,7 @@ const SignUp = () => {
         console.log(email, password, userProfile);
         //save user  infos to db
         fetch(
-          "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users",
+          "https://coffee-store-server-rust-five.vercel.app/users",
           {
             method: "POST",
             headers: {

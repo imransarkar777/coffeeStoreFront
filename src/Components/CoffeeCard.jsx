@@ -19,9 +19,10 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         //start deleting
+          
 
         fetch(
-          `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app/coffees/${_id}`,
+          `https://coffee-store-server-rust-five.vercel.app/coffees/${_id}`,
           {
             method: "DELETE",
           }

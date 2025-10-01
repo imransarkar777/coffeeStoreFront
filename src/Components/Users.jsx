@@ -18,7 +18,7 @@ const Users = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
-          `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users/${id}`,
+          `https://coffee-store-server-rust-five.vercel.app/users/${id}`,
           {
             method: "DELETE",
           }

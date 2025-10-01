@@ -14,16 +14,13 @@ const AddCoffee = () => {
 
     // send data to the backend
     // create post in back and then fetch() here
-    fetch(
-      "https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//coffees",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newCoffee),
-      }
-    )
+    fetch("https://coffee-store-server-rust-five.vercel.app/coffees", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {

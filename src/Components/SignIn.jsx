@@ -20,8 +20,9 @@ const SignIn = () => {
         lastSignIntime: res.user?.metadata?.lastSignInTime,
       };
       //update last sign in to the database
+      
       fetch(
-        `https://coffee-store-server-lk2eugtoy-imran-sarkar-setus-projects.vercel.app//users`,
+        `https://coffee-store-server-rust-five.vercel.app/users`,
         {
           method: "PATCH",
           headers: {
